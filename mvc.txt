@@ -1,0 +1,7 @@
+MVC =
+
+Model: representa o modelo de dados da aplicação.
+
+View: Vizualização dos dados apresentada ao usuário (Front-end).
+
+Controller: Unidade que contém a lógica e as regras da aplicação. Faz o meio campo entre o model e a view.
