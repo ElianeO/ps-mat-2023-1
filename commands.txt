@@ -1,2 +1,8 @@
 criar tabela: npx sequelize-cli model:generate --name User --attributes id:integer,name:string,email:string,verified_email:boolean,is_admin:boolean,phone:string,password:string
-npx sequelize-cli db:migrate
+
+npx sequelize-cli db:migrate (sobe a migrate)
+
+npx sequelize-cli db:migrate (derruba a migrate)
+
+npx sequelize-cli model:generate --name Channel --attributes id:integer,description:string,comission_fee:decimal
+

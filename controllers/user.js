@@ -28,7 +28,7 @@ controller.retrieve = async (req, res) => {
         //HTTP 200: OK (implícito)
         res.send(data)
     }
-    catch{
+    catch(error){
         console.error(error)
     }
 }
@@ -44,7 +44,48 @@ controller.retrieveOne = async (req, res) => {
         else res.status(404).end()
       
     }
-    catch{
+    catch(error){
+        console.error(error)
+    }
+}
+
+controller.update = async (req, res) => {
+    try{
+        const response = await User.update(
+            req.body,
+            { where: {id: req.params.id}}
+        )
+
+        /* response retorna um vetor. O primeiro elemento do vetor,
+        indica quantos registros foram afetados pelo uptade */
+        if(response[0] > 0){
+            // HTTP 204: No content
+            res.status(204).end()
+        }
+        else{
+            // HTTP 404: Not Found
+            res.status(404).end()
+        }
+    }
+    catch(error){
+    console.error(error)
+}
+}
+controller.delete = async (req, res) => {
+    try{
+        const response = await User.destroy(
+            { where: { id: req.params.id } }
+        )
+        if(response){ // Encontrou e excluiu
+            // HTTP 204: No Content
+            res.status(204).end()
+        }
+        else{
+            // HTTP 404: Not Found
+            res.status(404).end()
+        }
+    }
+    catch(error){
         console.error(error)
     }
 }
