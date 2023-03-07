@@ -14,12 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Channel.init({
-    id: DataTypes.INTEGER,
-    description: DataTypes.STRING,
-    comission_fee: DataTypes.DECIMAL
+    id: {
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: DataTypes.INTEGER
+  },
+  description: {
+    type: DataTypes.STRING(30),
+    allowNull: false
+  },
+  comission_fee: {
+    type: DataTypes.DECIMAL(18,2),
+    allowNull: false,
+    default: 0
+  }
   }, {
     sequelize,
     modelName: 'Channel',
-  });
+  } );
   return Channel;
 };
