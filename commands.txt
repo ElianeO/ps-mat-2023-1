@@ -2,7 +2,8 @@ criar tabela: npx sequelize-cli model:generate --name User --attributes id:integ
 
 npx sequelize-cli db:migrate (sobe a migrate)
 
-npx sequelize-cli db:migrate (derruba a migrate)
+npx sequelize-cli db:migrate:undo (derruba a migrate)
 
-npx sequelize-cli model:generate --name Channel --attributes id:integer,description:string,comission_fee:decimal
+npx sequelize-cli model:generate --name Channel --attributes description:string,comission_fee:decimal
 
+npx sequelize-cli model:generate --name Carrier --attributes name:string

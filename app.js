@@ -36,9 +36,13 @@ const users = require('./routes/users')
 app.use('/users', users)
 
 const channels = require('./routes/channels')
-app.use('./channels', channels)
+app.use('/channels', channels)
 
-const payment_method = require('./routes/payment_methods')
-app.use('./payment_methods', paymentMethods)
+const paymentMethods = require('./routes/payment_methods')
+app.use('/payment_methods', paymentMethods)
+
+const carriers = require('./routes/carriers')
+app.use('/carriers', carriers)
+
 
 module.exports = app;
