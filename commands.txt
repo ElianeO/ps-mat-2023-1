@@ -7,3 +7,9 @@ npx sequelize-cli db:migrate:undo (derruba a migrate)
 npx sequelize-cli model:generate --name Channel --attributes description:string,comission_fee:decimal
 
 npx sequelize-cli model:generate --name Carrier --attributes name:string
+
+npx sequelize-cli model:generate --name City --attributes name:string,state:string
+
+npx sequelize-cli model:generate --name shipment_priority --attributes description:string
+
+npx sequelize-cli model:generate --name order_status --attributes sequence:tinyint,description:string

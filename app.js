@@ -44,5 +44,13 @@ app.use('/payment_methods', paymentMethods)
 const carriers = require('./routes/carriers')
 app.use('/carriers', carriers)
 
+const cities = require('./routes/cities')
+app.use('/cities', cities)
+
+const shipment_priorities = require('./routes/shipment_priorities')
+app.use('/shipment_priorities', shipment_priorities)
+
+const order_statuses = require('./routes/order_statuses')
+app.use('/order_statuses', order_statuses)
 
 module.exports = app;
