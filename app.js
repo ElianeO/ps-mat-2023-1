@@ -53,4 +53,7 @@ app.use('/shipment_priorities', shipment_priorities)
 const order_statuses = require('./routes/order_statuses')
 app.use('/order_statuses', order_statuses)
 
+const customers = require('./routes/customers')
+app.use('/customers', customers)
+
 module.exports = app;
