@@ -13,3 +13,5 @@ npx sequelize-cli model:generate --name City --attributes name:string,state:stri
 npx sequelize-cli model:generate --name shipment_priority --attributes description:string
 
 npx sequelize-cli model:generate --name order_status --attributes sequence:tinyint,description:string
+
+npx sequelize-cli model:generate --name Order --attributes external_code:string,theme:string,description:text,remarks:text,pic_url:string,custom_name:string,custom_age:smallint,order_date:date,event_date:date,artwork_date:date,shipment_date:date,total_amount:decimal
