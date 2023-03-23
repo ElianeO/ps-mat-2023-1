@@ -31,22 +31,22 @@ module.exports = (sequelize, DataTypes) => {
     verified_email: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false
+      default: false    // Valor padrão do campo
     },
     is_admin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false //valor padrão do campo
+      default: false
     },
     phone: {
       type: DataTypes.STRING(20),
-      allowNull: false
+      allowNull: true
     },
     password: {
       type: DataTypes.STRING(200),
       allowNull: false
-  } 
-}, {
+    }
+  }, {
     sequelize,
     modelName: 'User',
     tableName: 'users'

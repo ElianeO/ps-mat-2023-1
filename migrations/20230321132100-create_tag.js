@@ -2,30 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('customers', {
+    await queryInterface.createTable('tags', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING(100),
-        allowNull: false
+      description: {
+        type: Sequelize.STRING(30)
       },
-      address: {
-        type: Sequelize.TEXT
+      color: {
+        type: Sequelize.STRING(8)
       },
-      phone: {
-        type: Sequelize.STRING(20),
-        allowNull: false
-      },
-      is_whatsapp: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-      },
-      city_id: {
-        type: Sequelize.INTEGER
+      type: {
+        type: Sequelize.ENUM('C','O')
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('customers');
+    await queryInterface.dropTable('tags');
   }
 };
