@@ -4,7 +4,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class CustomerTag extends Model {
+  class OrderTag extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of DataTypes lifecycle.
@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       
-      this.belongsTo(models.Customer, {
-        foreignKey: 'customer_id',    // Nome do campo na tabela de ORIGEM
+      this.belongsTo(models.Order, {
+        foreignKey: 'order_id',    // Nome do campo na tabela de ORIGEM
         targetKey: 'id',          // Nome do campo na tabela de DESTINO
-        as: 'customer'                // Nome do atributo para exibição
+        as: 'order'                // Nome do atributo para exibição
       })
 
-      this.belongsTo(models.Tag, {
+      this.belongsTo(models.OrderStatus, {
         foreignKey: 'tag_id',    // Nome do campo na tabela de ORIGEM
         targetKey: 'id',          // Nome do campo na tabela de DESTINO
         as: 'tag'                // Nome do atributo para exibição
@@ -26,14 +26,14 @@ module.exports = (sequelize, DataTypes) => {
 
     }
   }
-  CustomerTag.init({
+  OrderTag.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    customer_id: {
+    _id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'CustomerTag',
-    tableName: 'customer_tags'
+    modelName: 'OrderTag',
+    tableName: 'order_tags'
   });
-  return CustomerTag;
+  return OrderTag;
 };

@@ -1,5 +1,5 @@
 //importar o model correspondeTnte ao controller
-const { CustomerTag, Customer, Tag } = require('../models')
+const { OrderRelStatus, Order, OrderStatus, User } = require('../models')
 
 const controller = {}  //objeto vazio
 
@@ -14,7 +14,7 @@ const controller = {}  //objeto vazio
 
 controller.create = async (req, res) => {
     try {
-        await CustomerTag.create(req.body)
+        await OrderTag.create(req.body)
         //HTTP 201: Created
         res.status(201).end()
     }
@@ -25,10 +25,11 @@ controller.create = async (req, res) => {
 
 controller.retrieve = async(req, res) => {
     try{
-        const data = await CustomerTag.findAll({
+        const data = await OrderTag.findAll({
             include: [
-                { model: Customer, as: 'customer' },
-                { model: Tag, as: 'tag' }
+                { model: Order, as: 'order' },
+                { model: OrderStatus, as: 'order_status' },
+                { model: User, as: 'user' }
             ]
         }) //findAll dá um select*
         //HTTP 200: OK (implícito)
@@ -41,7 +42,7 @@ controller.retrieve = async(req, res) => {
 
 controller.retrieveOne = async(req, res) => {
     try{
-        const data = await CustomerTag.findByPk(req.params.id) //findAll dá um select*
+        const data = await OrderTag.findByPk(req.params.id) //findAll dá um select*
         //HTTP 200: OK (implícito)
         if(data) res.send(data)
 
@@ -56,7 +57,7 @@ controller.retrieveOne = async(req, res) => {
 
 controller.update = async (req, res) => {
     try{
-        const response = await CustomerTag.update(
+        const response = await OrderTag.update(
             req.body,
             { where: {id: req.params.id }}
         )
@@ -81,7 +82,7 @@ controller.update = async (req, res) => {
 
 controller.delete = async (req, res) => {
     try{
-        const response = await CustomerTag.destroy(
+        const response = await OrderRelStatus.destroy(
             { where: {id: req.params.id }}
         )
         if(response) {
