@@ -65,4 +65,10 @@ app.use('/tags', tags)
 const customerTags = require('./routes/customer_tags')
 app.use('/customer_tags', customerTags)
 
+const suppliers = require('./routes/suppliers')
+app.use('./suppliers', suppliers)
+
+const products = require('./routes/products')
+app.use('/products', products)
+
 module.exports = app;

@@ -1,5 +1,5 @@
 //importar o model correspondente ao controller
-const { OrderRelStatus, Order, OrderStatus, User } = require('../models')
+const { Supplier } = require('../models')
 
 const controller = {}  //objeto vazio
 
@@ -14,7 +14,7 @@ const controller = {}  //objeto vazio
 
 controller.create = async (req, res) => {
     try {
-        await OrderTag.create(req.body)
+        await Supplier.create(req.body)
         //HTTP 201: Created
         res.status(201).end()
     }
@@ -25,12 +25,8 @@ controller.create = async (req, res) => {
 
 controller.retrieve = async(req, res) => {
     try{
-        const data = await OrderTag.findAll({
-            include: [
-                { model: Order, as: 'order' },
-                { model: OrderStatus, as: 'order_status' },
-                { model: User, as: 'user' }
-            ]
+        const data = await Supplier.findAll({
+            include: { model: Customer, as: 'customers' }
         }) //findAll dá um select*
         //HTTP 200: OK (implícito)
         res.send(data)
@@ -42,7 +38,7 @@ controller.retrieve = async(req, res) => {
 
 controller.retrieveOne = async(req, res) => {
     try{
-        const data = await OrderTag.findByPk(req.params.id) //findAll dá um select*
+        const data = await Supplier.findByPk(req.params.id) //findAll dá um select*
         //HTTP 200: OK (implícito)
         if(data) res.send(data)
 
@@ -57,7 +53,7 @@ controller.retrieveOne = async(req, res) => {
 
 controller.update = async (req, res) => {
     try{
-        const response = await OrderTag.update(
+        const response = await Supplier.update(
             req.body,
             { where: {id: req.params.id }}
         )
@@ -82,7 +78,7 @@ controller.update = async (req, res) => {
 
 controller.delete = async (req, res) => {
     try{
-        const response = await OrderRelStatus.destroy(
+        const response = await Supplier.destroy(
             { where: {id: req.params.id }}
         )
         if(response) {
