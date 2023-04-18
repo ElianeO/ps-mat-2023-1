@@ -7,7 +7,7 @@ module.exports = {
       fields: ['supplier_id'],    // Campo(s) da tabela de origem
       type: 'foreign key',
       // nome da chave estrangeira (dever ser único no BD)
-      name: 'supplier_id_suppliers_fk',  
+      name: 'products_suppliers_fk',  
       references: {
         table: 'suppliers',      // Tabela estrangeira
         field: 'id'           // Campo da tabela estrangeira
@@ -18,6 +18,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.removeConstraint('products', 'upplier_id_suppliers_fk')
+    await queryInterface.removeConstraint('products', 'products_id_suppliers_fk')
   }
 };

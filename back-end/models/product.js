@@ -26,19 +26,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false
     },
     qunatity: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(18,2),
       allowNull: false
     },
     unit: {
-      type: DataTypes.ENUM,
+      type: DataTypes.ENUM('un', 'kg'),
       allowNull: false
     },
     supplier_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {

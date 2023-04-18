@@ -1,5 +1,5 @@
 //importar o model correspondente ao controller
-const { Supplier } = require('../models')
+const { Supplier, Product } = require('../models')
 
 const controller = {}  //objeto vazio
 
@@ -26,7 +26,7 @@ controller.create = async (req, res) => {
 controller.retrieve = async(req, res) => {
     try{
         const data = await Supplier.findAll({
-            include: { model: Customer, as: 'customers' }
+            include: { model: Product, as: 'products'}
         }) //findAll dá um select*
         //HTTP 200: OK (implícito)
         res.send(data)

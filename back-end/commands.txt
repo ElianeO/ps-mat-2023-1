@@ -19,3 +19,5 @@ npx sequelize-cli model:generate --name Order --attributes external_code:string,
 
 //Comando para gerar apenas uma migration (sem model)
 npx sequelize-cli migration:generate --name alter-table-customer-tag
+
+npx sequelize-cli model:generate --name products --attributes description:string,qunatity:decimal,unit:enum,supplier_id:integer

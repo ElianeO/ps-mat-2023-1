@@ -26,9 +26,8 @@ controller.create = async (req, res) => {
 controller.retrieve = async(req, res) => {
     try{
         const data = await Product.findAll({
-            include:[{ model: Prodcut, as: 'products' },
-                     { model: Supplier, as: 'suppliers' }
-        ]
+            include:{ model: Supplier, as: 'supplier' }
+        
         }) //findAll dá um select*
         //HTTP 200: OK (implícito)
         res.send(data)
