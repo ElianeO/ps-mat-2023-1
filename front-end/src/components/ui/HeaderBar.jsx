@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function HeaderBar() {
   return (
@@ -25,7 +25,7 @@ export default function HeaderBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Startisan
           </Typography>
-          <Button color="inherit" component={Link} to="/Login">Login</Button>
+          <Button color="inherit" component={Link} to="/login">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
