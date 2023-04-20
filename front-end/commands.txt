@@ -1,0 +1,7 @@
+npm create vite@latest front-end //criar o front-end (react. javascript)
+cd front-end
+npm i
+npm run dev
+npm i react-router-dom
+npm install @mui/material @emotion/react @emotion/styled
+npm i @mui/icons-material
