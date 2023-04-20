@@ -11,26 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.supplier, {
+      this.belongsTo(models.Supplier, {
         foreignKey: 'supplier_id',    // Nome do campo na tabela de ORIGEM
-        targetKey: 'id',              // Nome do campo na tabela de DESTINO
+        targetKey: 'id',          // Nome do campo na tabela de DESTINO
         as: 'supplier'                // Nome do atributo para exibição
       })
     }
   }
-  products.init({
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-    },
+  Product.init({
     description: {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    qunatity: {
-      type: DataTypes.DECIMAL(18,2),
+    quantity: {
+      type: DataTypes.DECIMAL(18, 2),
       allowNull: false
     },
     unit: {
@@ -40,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     supplier_id: {
       type: DataTypes.INTEGER,
       allowNull: false
-    }
+    },
   }, {
     sequelize,
     modelName: 'Product',
